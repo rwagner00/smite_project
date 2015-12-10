@@ -1,5 +1,17 @@
-* {
+@import "susy";
+
+$susy: (
+    columns: 12,  // The number of columns in your grid
+    gutters: 1/4, // The size of a gutter in relation to a single column
+    gutter-position: after,
+    global-box-sizing: border-box,
+);
+
+html {
   box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 img {
@@ -7,13 +19,20 @@ img {
 }
 
 .page {
-  max-width: 1200px;
-  margin-right: auto;
-  margin-left: auto;
+  @include container(1200px);
 }
 
 .equipped_items {
   min-height: 2500px;
+  @include span(2);
+}
+
+.available_equipment_tray {
+  @include span(2);
+}
+
+.current_god {
+  @include span(last 8)
 }
 
 .equipment_slot {
@@ -26,14 +45,12 @@ img {
 }
 
 .available_equipment_tray .item_equipment {
-  float: left;
-  width: 50%;
-  margin-bottom: 2em;
-  &:nth-child(even) {
-    padding-left: 1em;
-  }
+  margin-bottom: gutter(2);
   &:nth-child(odd) {
-    padding-right: 1em;
+    @include span(1 of 2);
+  }
+  &:nth-child(even) {
+    @include span(last 1 of 2);
   }
 }
 

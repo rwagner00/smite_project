@@ -1,16 +1,36 @@
-* {
+html {
   box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
 
 img {
   width: 100%; }
 
 .page {
   max-width: 1200px;
-  margin-right: auto;
-  margin-left: auto; }
+  margin-left: auto;
+  margin-right: auto; }
+  .page:after {
+    content: " ";
+    display: block;
+    clear: both; }
 
 .equipped_items {
-  min-height: 2500px; }
+  min-height: 2500px;
+  width: 15.25424%;
+  float: left;
+  margin-right: 1.69492%; }
+
+.available_equipment_tray {
+  width: 15.25424%;
+  float: left;
+  margin-right: 1.69492%; }
+
+.current_god {
+  width: 66.10169%;
+  float: right;
+  margin-right: 0; }
 
 .equipment_slot {
   width: 120px;
@@ -21,13 +41,15 @@ img {
   margin-bottom: 2em; }
 
 .available_equipment_tray .item_equipment {
-  float: left;
-  width: 50%;
-  margin-bottom: 2em; }
-  .available_equipment_tray .item_equipment:nth-child(even) {
-    padding-left: 1em; }
+  margin-bottom: 11.11111%; }
   .available_equipment_tray .item_equipment:nth-child(odd) {
-    padding-right: 1em; }
+    width: 44.44444%;
+    float: left;
+    margin-right: 11.11111%; }
+  .available_equipment_tray .item_equipment:nth-child(even) {
+    width: 44.44444%;
+    float: right;
+    margin-right: 0; }
 
 .current_god {
   min-height: 1000px;
