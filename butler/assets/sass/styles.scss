@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+.page {
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.equipped_items {
+  min-height: 2500px;
+}
+
+.equipment_slot {
+  width: 120px;
+  height: 120px;
+  background-color: lightcoral;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 2em;
+}
+
+.available_equipment_tray .item_equipment {
+  float: left;
+  width: 50%;
+  margin-bottom: 2em;
+  &:nth-child(even) {
+    padding-left: 1em;
+  }
+  &:nth-child(odd) {
+    padding-right: 1em;
+  }
+}
+
+.current_god {
+  min-height: 1000px;
+  background: url(../img/sol.jpg) no-repeat top center;
+  background-size: 50%;
+}
