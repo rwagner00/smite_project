@@ -1,268 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Smite Prototype</title>
-<script src="butler/assets/js/jquery-2.1.4.min.js"></script>
-<script src="butler/assets/js/jquery-ui.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="butler/assets/css/styles.css">
-<script src="butler/assets/js/script.js"></script>
+  <meta charset="UTF-8">
+  <title>Smite Prototype</title>
+  <script src="butler/assets/js/jquery-2.1.4.min.js"></script>
+  <link rel="stylesheet" href="butler/assets/css/styles.css">
+  <script src="butler/assets/js/script.js"></script>
 </head>
 <body>
 <div class="page">
-    <div class="row">
-        <div class="equipped_items">
-            <div id="equipment_slot_1" class="equipment_slot"></div>
-            <div id="equipment_slot_2" class="equipment_slot"></div>
-            <div id="equipment_slot_3" class="equipment_slot"></div>
-            <div id="equipment_slot_4" class="equipment_slot"></div>
-            <div id="equipment_slot_5" class="equipment_slot"></div>
-        </div>
-        <div class="available_equipment_tray">
-            <div class="row">
-                <img src="http://placehold.it/100x100" alt="item_1" id="item_1"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_2" id="item_2"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_3" id="item_3"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_4" id="item_4"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_5" id="item_5"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_6" id="item_6"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_7" id="item_7"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_8" id="item_8"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_9" id="item_9"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_10" id="item_10"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_11" id="item_11"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_12" id="item_12"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_13" id="item_13"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_14" id="item_14"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_15" id="item_15"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_16" id="item_16"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_17" id="item_17"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_18" id="item_18"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_19" id="item_19"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_20" id="item_20"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_21" id="item_21"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_22" id="item_22"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_23" id="item_23"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_24" id="item_24"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_25" id="item_25"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_26" id="item_26"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_27" id="item_27"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_28" id="item_28"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_29" id="item_29"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_30" id="item_30"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_31" id="item_31"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_32" id="item_32"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_33" id="item_33"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_34" id="item_34"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_35" id="item_35"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_36" id="item_36"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_37" id="item_37"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_38" id="item_38"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_39" id="item_39"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-                <img src="http://placehold.it/100x100" alt="item_40" id="item_40"
-                     class="item_equipment" data_cost="1100" data_stacking="1"
-                     data_max_stacks="50" data_ups="5" data_stack_attr="power" data_hp="400"
-                     data_mana="100" data_phys_resist="30" data_magi_resist="45" data_cdr="20"
-                     data_mp="8">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-        <div class="current_god"></div>
+  <div class="row">
+    <div class="equipped_items">
+      <div class="equipment_slot_wrapper">
+        <div id="equipment_slot_1" class="droppable equipment_slot"></div>
+        <div id="equipment_slot_slider_1" class="equipment_slot_slider"></div>
+      </div>
+      <div class="equipment_slot_wrapper">
+        <div id="equipment_slot_2" class="droppable equipment_slot"></div>
+        <div id="equipment_slot_slider_2" class="equipment_slot_slider"></div>
+      </div>
+      <div class="equipment_slot_wrapper">
+        <div id="equipment_slot_3" class="droppable equipment_slot"></div>
+        <div id="equipment_slot_slider_3" class="equipment_slot_slider"></div>
+      </div>
+      <div class="equipment_slot_wrapper">
+        <div id="equipment_slot_4" class="droppable equipment_slot"></div>
+        <div id="equipment_slot_slider_4" class="equipment_slot_slider"></div>
+      </div>
+      <div class="equipment_slot_wrapper">
+        <div id="equipment_slot_5" class="droppable equipment_slot"></div>
+        <div id="equipment_slot_slider_5" class="equipment_slot_slider"></div>
+      </div>
     </div>
-</div></body>
+    <div class="available_equipment_tray droppable multipleChildren">
+
+      <img src="http://placehold.it/100x100" alt="item_1" id="a"
+           class="item_equipment dragElement" data-cost="1100" data-stacking="1"
+           data-max_stacks="50" data-ups="5" data-stack_attr="power" data-hp="400"
+           data-mana="100" data-phys_resist="30" data-magi_resist="45" data-cdr="20"
+           data-mp="8">
+      <img src="http://placehold.it/100x100" alt="item_2" id="b"
+           class="item_equipment dragElement" data-cost="1100" data-stacking="1"
+           data-max_stacks="50" data-ups="5" data-stack_attr="power" data-hp="400"
+           data-mana="100" data-phys_resist="30" data-magi_resist="45" data-cdr="20"
+           data-mp="8">
+      <img src="http://placehold.it/100x100" alt="item_3" id="c"
+           class="item_equipment dragElement" data-cost="1100" data-stacking="1"
+           data-max_stacks="50" data-ups="5" data-stack_attr="power" data-hp="400"
+           data-mana="100" data-phys_resist="30" data-magi_resist="45" data-cdr="20"
+           data-mp="8">
+      <img src="http://placehold.it/100x100" alt="item_5" id="d"
+           class="item_equipment dragElement" data-cost="1100" data-stacking="1"
+           data-max_stacks="50" data-ups="5" data-stack_attr="power" data-hp="400"
+           data-mana="100" data-phys_resist="30" data-magi_resist="45" data-cdr="20"
+           data-mp="8">
+      <img src="http://placehold.it/100x100" alt="item_6" id="e"
+           class="item_equipment dragElement" data-cost="1100" data-stacking="1"
+           data-max_stacks="50" data-ups="5" data-stack_attr="power" data-hp="400"
+           data-mana="100" data-phys_resist="30" data-magi_resist="45" data-cdr="20"
+           data-mp="8">
+      <img src="http://placehold.it/100x100" alt="item_7" id="f"
+           class="item_equipment dragElement" data-cost="1100" data-stacking="1"
+           data-max_stacks="50" data-ups="5" data-stack_attr="power" data-hp="400"
+           data-mana="100" data-phys_resist="30" data-magi_resist="45" data-cdr="20"
+           data-mp="8">
+      <img src="http://placehold.it/100x100" alt="item_8" id="g"
+           class="item_equipment dragElement" data-cost="1100" data-stacking="1"
+           data-max_stacks="50" data-ups="5" data-stack_attr="power" data-hp="400"
+           data-mana="100" data-phys_resist="30" data-magi_resist="45" data-cdr="20"
+           data-mp="8">
+      <img src="http://placehold.it/100x100" alt="item_9" id="h"
+           class="item_equipment dragElement" data-cost="1100" data-stacking="1"
+           data-max_stacks="50" data-ups="5" data-stack_attr="power" data-hp="400"
+           data-mana="100" data-phys_resist="30" data-magi_resist="45" data-cdr="20"
+           data-mp="8">
+      <img src="http://placehold.it/100x100" alt="item_10" id="i"
+           class="item_equipment dragElement" data-cost="1100" data-stacking="1"
+           data-max_stacks="50" data-ups="5" data-stack_attr="power" data-hp="400"
+           data-mana="100" data-phys_resist="30" data-magi_resist="45" data-cdr="20"
+           data-mp="8">
+      <img src="http://placehold.it/100x100" alt="item_11" id="j"
+           class="item_equipment dragElement" data-cost="1100" data-stacking="1"
+           data-max_stacks="50" data-ups="5" data-stack_attr="power" data-hp="400"
+           data-mana="100" data-phys_resist="30" data-magi_resist="45" data-cdr="20"
+           data-mp="8">
+      <img src="http://placehold.it/100x100" alt="item_12" id="k"
+           class="item_equipment dragElement" data-cost="1100" data-stacking="1"
+           data-max_stacks="50" data-ups="5" data-stack_attr="power" data-hp="400"
+           data-mana="100" data-phys_resist="30" data-magi_resist="45" data-cdr="20"
+           data-mp="8">
+      <img src="http://placehold.it/100x100" alt="item_13" id="l"
+           class="item_equipment dragElement" data-cost="1100" data-stacking="1"
+           data-max_stacks="50" data-ups="5" data-stack_attr="power" data-hp="400"
+           data-mana="100" data-phys_resist="30" data-magi_resist="45" data-cdr="20"
+           data-mp="8">
+      <img src="http://placehold.it/100x100" alt="item_14" id="m"
+           class="item_equipment dragElement" data-cost="1100" data-stacking="1"
+           data-max_stacks="50" data-ups="5" data-stack_attr="power" data-hp="400"
+           data-mana="100" data-phys_resist="30" data-magi_resist="45" data-cdr="20"
+           data-mp="8">
+      <img src="http://placehold.it/100x100" alt="item_4" id="n"
+           class="item_equipment dragElement" data-cost="1100" data-stacking="1"
+           data-max_stacks="50" data-ups="5" data-stack_attr="power" data-hp="400"
+           data-mana="100" data-phys_resist="30" data-magi_resist="45" data-cdr="20"
+           data-mp="8">
+    </div>
+    <div class="current_god"></div>
+  </div>
+</div>
+</body>
 </html>

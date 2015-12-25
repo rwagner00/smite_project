@@ -33,12 +33,18 @@ img {
   margin-right: 0; }
 
 .equipment_slot {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   background-color: lightcoral;
   margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 2em; }
+  margin-left: auto; }
+
+.equipment_slot,
+.equipment_slot_slider {
+  margin-bottom: .5em; }
+
+.equipment_slot_wrapper {
+  margin-bottom: 1.5em; }
 
 .available_equipment_tray .item_equipment {
   margin-bottom: 11.11111%; }

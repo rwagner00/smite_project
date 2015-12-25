@@ -1,37 +1,115 @@
-
-$(function() {
-  $('.item_equipment').draggable({
-    revert: 'invalid',
-    opacity: .4,
-    create: function(){$(this).data('position',$(this).position())},
-    cursor:'move',
-    start:function(){$(this).stop(true,true)}
-  });
-
-  $( ".available_equipment_tray" ).droppable({
-    activeClass: "ui-state-default",
-    hoverClass: "ui-state-hover",
-    drop: function( event, ui ) {
-      $( this ).addClass("ui-state-highlight" );
+(function(){
+  //each droppable element needs this for its dragover event
+  var allowDragover = function (event) {
+      //prevent the browser from any default behavior
+      event.preventDefault();
     },
-  });
+  //each dragable element needs this for its dragstart event
+    dragStartHandler = function (event) {
 
-  $( ".equipment_slot" ).droppable({
-    activeClass: "ui-state-default",
-    hoverClass: "ui-state-hover",
-    tolerance: "pointer",
-    drop: function( event, ui ) {
-      $( this ).addClass("ui-state-highlight" );
-    },
-    out : function(event, ui) {
-    },
-    revert: function (event, ui) {
-    }
-  });
-})
+      //set a reference to the element that is currenly being dragged
+      event.originalEvent.dataTransfer.setData("id",event.target.id);
 
-function snapToMiddle(dragger, target){
-  var topMove = target.position().top - dragger.data('position').top + (target.outerHeight(true) - dragger.outerHeight(true)) / 2;
-  var leftMove= target.position().left - dragger.data('position').left + (target.outerWidth(true) - dragger.outerWidth(true)) / 2;
-  dragger.animate({top:topMove,left:leftMove},{duration:600,easing:'easeOutBack'});
-}
+      //var dragIcon = null;
+      //create a custom drag image
+      //dragIcon = document.createElement('img');
+      //dragIcon.src = 'http://bit.ly/bartSimpsonSkateboard200X200';
+      //set the custom drag image
+      //event.originalEvent.dataTransfer.setDragImage(dragIcon, 100, 100);
+
+    },
+  //each of the four light-brown boxes at top have this bound to their drop event
+    dropHandlerSingle = function (event) {
+      var id = '';
+
+      //prevent the browser from any default behavior
+      event.preventDefault();
+
+      //only allow one child element at a time
+      if($(this).children().length){return;}
+
+      // Get a reference and object of the element that is being dropped.
+      id = event.originalEvent.dataTransfer.getData("id");
+      var dropped = document.getElementById(id);
+      equipmentSlider(dropped);
+
+      //add the hasChild class so that the UI can update
+      $(event.target).addClass('hasChild');
+
+      //trigger the custom event so that we can update the UI
+      $(document).trigger('custom:dropEvent');
+
+      //move the dragged element into the drop target
+      event.target.appendChild(document.getElementById(id));
+    },
+  //the box that holds the four blue dragable boxes on page load has this bound to its drop event
+    dropHandlerMultiple = function (event) {
+      event.preventDefault();
+
+      var id = event.originalEvent.dataTransfer.getData("id");
+
+      $(event.target).addClass('hasChild');
+
+      // Add the element back to the start of the list to aid in finding it again.
+      event.target.insertBefore(document.getElementById(id), event.target.firstChild);
+
+      $(document).trigger('custom:dropEvent');
+
+    },
+
+    equipmentSlider = function(element) {
+
+    };
+
+
+
+  $(document).ready(function(){
+
+
+    //cache a reference to all four blue draggable boxes
+    var $dragElements = $('.dragElement');
+
+    //make each dragElement draggable
+    $dragElements.attr('draggable','true');
+
+    //bind the dragStartHandler function to all dragElements
+    $dragElements.bind('dragstart',dragStartHandler);
+
+    //bind the dropHandlerSingle function to all of the droppable elements (omit the original container)
+    var $droppable = $('.droppable');
+    $droppable.not('.multipleChildren').bind('drop',dropHandlerSingle);
+
+    //bind the dropHandlerMultiple function to the .droppable.multipleChildren element
+    $('.droppable.multipleChildren').bind('drop',dropHandlerMultiple);
+
+    //after something is dropped
+    $(document).on('custom:dropEvent',function(){
+      //make sure the DOM has been updated
+      setTimeout(function(){
+        //check each droppable element to see if it has a child
+        $('.droppable').each(function(){
+          //if this element has no children
+          if (!$(this).children().length){
+            //remove the hasChild class
+            $(this).removeClass('hasChild');
+          }
+        });
+      },50);
+
+    });
+
+    //bind the appropriate handlers for the dragover, dragenter and dragleave events
+    $droppable.bind({
+      dragover: allowDragover,
+      dragenter: function() {
+        //ignore this event for the original container of the drag elements
+        if ( $(this).hasClass('multipleChildren') ){return;}
+
+        $(this).addClass('dragEnter');
+      },
+      dragleave: function() {
+        $(this).removeClass('dragEnter');
+      }
+    });
+  })
+})();
