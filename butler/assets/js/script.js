@@ -7,7 +7,7 @@
   //each dragable element needs this for its dragstart event
     dragStartHandler = function (event) {
 
-      //set a reference to the element that is currenly being dragged
+      // Set a reference to the element that is currently being dragged.
       event.originalEvent.dataTransfer.setData("id",event.target.id);
 
       //var dragIcon = null;
@@ -20,7 +20,6 @@
     },
   //each of the four light-brown boxes at top have this bound to their drop event
     dropHandlerSingle = function (event) {
-      var id = '';
 
       //prevent the browser from any default behavior
       event.preventDefault();
@@ -29,17 +28,21 @@
       if($(this).children().length){return;}
 
       // Get a reference and object of the element that is being dropped.
-      id = event.originalEvent.dataTransfer.getData("id");
+      var id = event.originalEvent.dataTransfer.getData("id");
       var dropped = document.getElementById(id);
-      equipmentSlider(dropped);
 
-      //add the hasChild class so that the UI can update
+      // If the item is a stacking item, initialize the slider.
+      if (dropped.dataset.stacking === "1") {
+        equipmentSlider(dropped, event.target);
+      }
+
+      // Add the hasChild class so that the UI can update.
       $(event.target).addClass('hasChild');
 
-      //trigger the custom event so that we can update the UI
+      // Trigger the custom event so that we can update the UI.
       $(document).trigger('custom:dropEvent');
 
-      //move the dragged element into the drop target
+      // Move the dragged element into the drop target.
       event.target.appendChild(document.getElementById(id));
     },
   //the box that holds the four blue dragable boxes on page load has this bound to its drop event
@@ -57,8 +60,11 @@
 
     },
 
-    equipmentSlider = function(element) {
+    equipmentSlider = function(dropped, target) {
+      var sliderID = $(target).attr('id') + '_slider';
+      var sliderElement = document.getElementById(sliderID);
 
+      $(sliderElement).slider();
     };
 
 
@@ -92,6 +98,10 @@
           if (!$(this).children().length){
             //remove the hasChild class
             $(this).removeClass('hasChild');
+            var slider = document.getElementById($(this).attr('id') + '_slider');
+            if ($(slider).hasClass('ui-slider')) {
+              $(slider).slider('destroy');
+            }
           }
         });
       },50);
