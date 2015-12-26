@@ -18,7 +18,7 @@
       //event.originalEvent.dataTransfer.setDragImage(dragIcon, 100, 100);
 
     },
-  //each of the four light-brown boxes at top have this bound to their drop event
+  // For droppables that only allow one item to be dropped.
     dropHandlerSingle = function (event) {
 
       //prevent the browser from any default behavior
@@ -45,19 +45,32 @@
       // Move the dragged element into the drop target.
       event.target.appendChild(document.getElementById(id));
     },
-  //the box that holds the four blue dragable boxes on page load has this bound to its drop event
+
+    // For items that allow multiple items to be dropped in them.
     dropHandlerMultiple = function (event) {
       event.preventDefault();
 
-      var id = event.originalEvent.dataTransfer.getData("id");
+      // Get the string id of the item that the element was dropped on.
+      var droppableID = event.originalEvent.dataTransfer.getData("id");
 
-      $(event.target).addClass('hasChild');
+      // Since the dropped on element might not actually be the container,
+      // we need to find the first parent with the droppable class.
+      var dropZone = $(event.target).closest('.droppable');
 
-      // Add the element back to the start of the list to aid in finding it again.
-      event.target.insertBefore(document.getElementById(id), event.target.firstChild);
+      // Check to see whether or not the container already has the dropped
+      // item in it.
+      var duplicate = $(dropZone).find('#' + droppableID);
 
-      $(document).trigger('custom:dropEvent');
+      // If the current item is not in the drop area, do things.
+      if (duplicate.length == 0) {
+        $(event.target).addClass('hasChild');
 
+        // Add the element back to the start of the list to aid in finding it again.
+        event.target.insertBefore(document.getElementById(droppableID), event.target.firstChild);
+
+        // Trigger the custom drop event to update droppables.
+        $(document).trigger('custom:dropEvent');
+      }
     },
 
     equipmentSlider = function(dropped, target) {
