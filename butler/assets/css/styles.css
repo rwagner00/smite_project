@@ -7,6 +7,9 @@ html {
 img {
   width: 100%; }
 
+.drop-show {
+  display: none; }
+
 .page {
   max-width: 1200px;
   margin-left: auto;
@@ -22,7 +25,7 @@ img {
   float: left;
   margin-right: 1.69492%; }
 
-.available_equipment_tray {
+.available_equipment_wrapper {
   width: 15.25424%;
   float: left;
   margin-right: 1.69492%; }
@@ -46,6 +49,11 @@ img {
 .equipment_slot_wrapper {
   margin-bottom: 1.5em; }
 
+.available_equipment_tray:after {
+  content: " ";
+  display: block;
+  clear: both; }
+
 .available_equipment_tray .item_equipment {
   margin-bottom: 11.11111%; }
   .available_equipment_tray .item_equipment:nth-child(odd) {
@@ -56,6 +64,14 @@ img {
     width: 44.44444%;
     float: right;
     margin-right: 0; }
+
+#recent-items-break {
+  height: 1px;
+  background-color: black;
+  width: 100%;
+  clear: both;
+  margin-top: .5em;
+  margin-bottom: .5em; }
 
 .current_god {
   min-height: 1000px;

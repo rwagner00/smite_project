@@ -56,6 +56,7 @@
       // Since the dropped on element might not actually be the container,
       // we need to find the first parent with the droppable class.
       var dropZone = $(event.target).closest('.droppable');
+      var dropZoneNode = document.getElementById(dropZone.attr('id'));
 
       // Check to see whether or not the container already has the dropped
       // item in it.
@@ -63,10 +64,14 @@
 
       // If the current item is not in the drop area, do things.
       if (duplicate.length == 0) {
+        var drop_show = $('.drop-show');
+        if (drop_show.length > 0) {
+          drop_show.removeClass('drop-show');
+        }
         $(event.target).addClass('hasChild');
 
         // Add the element back to the start of the list to aid in finding it again.
-        event.target.insertBefore(document.getElementById(droppableID), event.target.firstChild);
+        dropZoneNode.insertBefore(document.getElementById(droppableID), dropZoneNode.firstChild);
 
         // Trigger the custom drop event to update droppables.
         $(document).trigger('custom:dropEvent');

@@ -18,6 +18,10 @@ img {
   width: 100%;
 }
 
+.drop-show {
+  display: none;
+}
+
 .page {
   @include container(1200px);
 }
@@ -27,7 +31,7 @@ img {
   @include span(2);
 }
 
-.available_equipment_tray {
+.available_equipment_wrapper {
   @include span(2);
 }
 
@@ -52,6 +56,10 @@ img {
   margin-bottom: 1.5em;
 }
 
+.available_equipment_tray {
+  @include susy-clearfix;
+}
+
 .available_equipment_tray .item_equipment {
   margin-bottom: gutter(2);
   &:nth-child(odd) {
@@ -60,6 +68,15 @@ img {
   &:nth-child(even) {
     @include span(last 1 of 2);
   }
+}
+
+#recent-items-break {
+  height: 1px;
+  background-color: black;
+  width: 100%;
+  clear: both;
+  margin-top: .5em;
+  margin-bottom: .5em;
 }
 
 .current_god {
